@@ -1,10 +1,98 @@
+/* Базовые настройки */
 body {
     background-color: #f8f9fa;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+/* Анимации появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card, .alert {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Микроанимации для карточек */
 .card {
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0,0,0,.125);
 }
+
 .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Микроанимации для кнопок */
+.btn {
+    transition: all 0.2s ease;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* Плавное изменение цвета бейджей статусов */
+.badge {
+    transition: background-color 0.3s ease;
+}
+
+/* Стилизация инпутов при фокусе */
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    border-color: #86b7fe;
+}
+
+/* Адаптив под мобильные устройства (390x844 и меньше) */
+@media (max-width: 430px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h5.card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    /* Уменьшаем отступы на мобильных, чтобы все влезало */
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Навбар на мобильных */
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    /* Кнопки на всю ширину для удобства тапа */
+    .btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Таблицы и формы */
+    .form-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .alert {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    /* Скрываем лишний текст в навбаре, если не влезает */
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.5rem;
+    }
 }
